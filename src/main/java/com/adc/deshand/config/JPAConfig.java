@@ -1,8 +1,5 @@
 package com.adc.deshand.config;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import javax.sql.DataSource;
 
 import org.dozer.DozerBeanMapper;
@@ -25,22 +22,24 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.adc.deshand.persist")
 public class JPAConfig {
 
-	String databaseUrl = System.getenv("DATABASE_URL");
-	URI dbUri = getUri();
+//	String databaseUrl = System.getenv("DATABASE_URL");
+//	URI dbUri = getUri();
+//
+//	private URI getUri() {
+//		try {
+//			dbUri = new URI(databaseUrl);
+//		} catch (URISyntaxException e) {
+//			return null;
+//		}
+//		return dbUri;
+//	}
+//
+//	String username = dbUri.getUserInfo().split(":")[0];
+//	String password = dbUri.getUserInfo().split(":")[1];
+//	String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
-	private URI getUri() {
-		try {
-			dbUri = new URI(databaseUrl);
-		} catch (URISyntaxException e) {
-			return null;
-		}
-		return dbUri;
-	}
-
-	String username = dbUri.getUserInfo().split(":")[0];
-	String password = dbUri.getUserInfo().split(":")[1];
-	String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
+	// That is for embedded DB
+	
 	// @Bean(name = "dataSource")
 	// public DataSource dataSource() {
 	// return new
@@ -52,33 +51,18 @@ public class JPAConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource driver = new DriverManagerDataSource();
 		driver.setDriverClassName("org.postgresql.Driver");
-
-		driver.setUrl(dbUrl);
-		driver.setUsername(username);
-		driver.setPassword(password);
+//                 Heroku DB
+//		driver.setUrl(dbUrl);
+//		driver.setUsername(username);
+//		driver.setPassword(password);
 		
 //                 Local DB
-//		driver.setUrl("jdbc:postgresql:counter_project");
-//		driver.setUsername("postgres");
-//		driver.setPassword("postgres");
+		driver.setUrl("jdbc:postgresql:counter_project");
+		driver.setUsername("postgres");
+		driver.setPassword("postgres");
 
 		return driver;
 	}
-
-	// @Bean(name = "entityManagerFactory")
-	// public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean()
-	// {
-	// LocalContainerEntityManagerFactoryBean factoryBean = new
-	// LocalContainerEntityManagerFactoryBean();
-	// factoryBean.setDataSource(dataSource());
-	// factoryBean.setPackagesToScan(new String[] { "com.adc.deshand.persist"
-	// });
-	// HibernateJpaVendorAdapter vendorAdapter = new
-	// HibernateJpaVendorAdapter();
-	// vendorAdapter.setShowSql(true);
-	// factoryBean.setJpaVendorAdapter(vendorAdapter);
-	// return factoryBean;
-	// }
 
 	@Bean(name = "entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -101,15 +85,6 @@ public class JPAConfig {
 		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return transactionManager;
 	}
-
-	// @Bean
-	// @Autowired
-	// public JpaTransactionManager transactionManager() {
-	// JpaTransactionManager txManager = new JpaTransactionManager();
-	// txManager.setEntityManagerFactory(entityManagerFactory().getObject());
-	//
-	// return txManager;
-	// }
 
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {

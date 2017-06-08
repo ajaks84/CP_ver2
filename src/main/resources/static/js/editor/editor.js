@@ -8,7 +8,7 @@ angular.module('editor', [])
 	self.editorData = store.editorData
 	self.fields = Object.getOwnPropertyNames(self.editorData[0]);
 	self.fields.pop();}
-    else {console.log('no data to display')
+    else {
     	self.empty = 1}
 	self.path = store.path;
 	self.goBack = function() {

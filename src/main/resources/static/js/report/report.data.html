@@ -10,7 +10,7 @@
 <hr>
 <div class="row minihdr">
 	<div class="col-md-6 col-sm-6 col-xs-12">
-		<div id="wrap">
+		<div id="wrap" ng-show = "!ctrl.empty">
 			<div id="left_col">
 				<table style="width: 50%">
 					<tr>
@@ -36,8 +36,9 @@
 		</div>
 	</div>
 </div>
+<span ng-show = "ctrl.empty" >There is no data to display</span>
 <hr>
-<div class="row">
+<div class="row"  ng-show = "!ctrl.empty">
 	<div class="col-md-6 col-sm-12 col-xs-12">
 		<a href="editor" ng-click="ctrl.editReport()"><button>Add
 				or Edit Report</button></a>
