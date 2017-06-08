@@ -1,0 +1,18 @@
+<div class="row minihdr">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<a href="Countries">Countries</a> &lt; <span>{{ctrl.country.name}}</span>
+		| <span>Factories</span>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<factories ng-repeat="factory in ctrl.factories" factory="factory">
+	</factories>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+		<a href="editor" ng-click="ctrl.edit()"><button>Edit
+				Factories List</button></a>
+	</div>
+</div>

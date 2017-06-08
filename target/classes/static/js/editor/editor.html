@@ -1,0 +1,70 @@
+<div class="row minihdr">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<a href="javascript:void(0);" ng-click="ctrl.goBack()">Back to {{ctrl.path}}</a>
+	</div>
+</div>
+<hr>
+<div class="row ">
+	<div class="col-md-6 col-sm-6 col-xs-6" id="SMPGR">
+		<table ng-show = "!ctrl.empty" class="table table-condensed">
+			<!-- table-striped -->
+			<thead>
+				<tr>
+					<td class="text-center" ng-repeat="field in ctrl.fields">{{field}}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="obj in ctrl.editorData">
+					<td class="text-center" ng-repeat="field in obj">{{field}}</td>
+					<td><a ng-click="ctrl.setParam(obj)"
+						class="btn btn-small btn-primary">edit</a></td>
+					<td><a ng-click="ctrl.deleteEntry(obj)"
+						class="btn btn-small btn-danger">delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<span ng-show = "ctrl.empty" >There is no data to display</span>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-6 col-sm-12 col-xs-12" id="normal">
+<!-- 	Add form -->
+		<form ng-if="!ctrl.edit" class="form-horizontal" role="form"
+			ng-submit="ctrl.insertEntry()">
+			<div class="form-group">
+				<div class="col-md-6">
+					<input ng-if="field!='id'" type="text" class="form-control"
+						name="name" placeholder={{field}}
+						ng-model="ctrl.entry[field]"
+						ng-repeat="field in ctrl.fields" required />
+				</div>
+			</div>
+			<div class="form-group">
+				<div style="padding-left: 110px">
+					<input type="submit" ng-show = "!ctrl.empty" value="Add new entry"
+						ng-disabled="form.$invalid" class="btn btn-primary" />
+				</div>
+			</div>
+		</form>
+<!-- 		Update form -->
+		<form ng-if="ctrl.edit" class="form-horizontal" role="form"
+			ng-submit="ctrl.updateEntry()">
+			<div class="form-group">
+				<div class="col-md-6"
+					ng-repeat="(key,field) in ctrl.editEntry">
+					<label>{{key}}</label> <input type="text" class="form-control"
+						value={{field}} ng-model="ctrl.editEntry[key]" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div style="padding-left: 110px">
+					<input type="submit" value="Update selected entry"
+						ng-disabled="form.$invalid" class="btn btn-primary" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+

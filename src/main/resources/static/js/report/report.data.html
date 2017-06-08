@@ -1,0 +1,49 @@
+<div class="row minihdr">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<a href="Countries">Countries</a> &lt; <span>{{ctrl.country.name}}</span>
+		| <a href="Factories/{{ctrl.country.name}">Factories</a> &lt; <span>{{ctrl.factory.name}}</span>
+		| <a href="Lines/{{ctrl.factory.name}}">Lines</a> &lt; <span>{{ctrl.line.name
+			}}</span> | <a href="Reports/{{ctrl.line.name">Reports</a> &lt; <span>{{ctrl.reportData.date}}</span><span>#{{
+			ctrl.reportData.shift}}</span>
+	</div>
+</div>
+<hr>
+<div class="row minihdr">
+	<div class="col-md-6 col-sm-6 col-xs-12">
+		<div id="wrap">
+			<div id="left_col">
+				<table style="width: 50%">
+					<tr>
+						<th>Register:</th>
+						<td>{{ctrl.reportData.register }}</td>
+					</tr>
+					<tr>
+						<th>Input:</th>
+						<td>{{ctrl.reportData.input}}</td>
+					</tr>
+					<tr>
+						<th>Output:</th>
+						<td>{{ctrl.reportData.output}}</td>
+					</tr>
+				</table>
+			</div>
+			<div id="right_col">
+				<table style="width: 50%">
+					<consumption ng-repeat="consumption in ctrl.consumptionList"
+						consumption="consumption"> </consumption>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+		<a href="editor" ng-click="ctrl.editReport()"><button>Add
+				or Edit Report</button></a>
+	</div>
+	<div class="col-md-6 col-sm-12 col-xs-12">
+		<a href="editor" ng-click="ctrl.editCons()"><button>Edit
+				Report Consumption</button></a>
+	</div>
+</div>

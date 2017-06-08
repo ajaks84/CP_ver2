@@ -1,0 +1,43 @@
+<div class="row" id="normal">
+	<div class="col-md-4 col-sm-12 col-xs-12">
+		<h1>Description</h1>
+		<p>This project is about data collection from production lines.
+			The data is stored in the DB by PLC and then can be accessed from
+			this application. Log in and you'll be able to view, edit and delete
+			data entries in DB</p>
+	</div>
+	<div class="col-md-4 col-sm-12 col-xs-12">
+		<h1>Goals to complete:</h1>
+		<ul>
+			<li>Finish the editor</li>
+			<li>Organize data for report view</li>
+			<li>Clean Up data.service.js</li>
+			<li>Get normal username</li>
+		</ul>
+	</div>
+	<div class="col-md-4 col-sm-12 col-xs-12">
+		<div class="alert alert-danger" ng-show="controller.error">
+			There was a problem logging in. Please try again.</div>
+		<form name="form" ng-submit="controller.login()" role="form">
+			<div class="form-group">
+				<label for="username">Username</label><input type="text"
+					id="username" name="username" class="form-control"
+					ng-model="controller.credentials.username" required /> <span
+					ng-show="form.username.$touched && form.username.$error.required"
+					class="help-block">Username is required</span>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label> <input type="password"
+					id="password" name="password" class="form-control"
+					ng-model="controller.credentials.password" required /> <span
+					ng-show="form.password.$touched && form.password.$error.required"
+					class="help-block">Password is required</span>
+			</div>
+			<div class="form-actions">
+				<button type="submit" ng-disabled="form.$invalid || dataLoading"
+					class="btn btn-danger">Login</button>
+			</div>
+		</form>
+	</div>
+</div>
+
