@@ -33,9 +33,10 @@ public class JPAConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource driver = new DriverManagerDataSource();
 		driver.setDriverClassName("org.postgresql.Driver");
-		driver.setUrl("jdbc:postgresql:counter_project");
-		driver.setUsername("postgres");
-		driver.setPassword("postgres");
+		
+//		driver.setUrl("jdbc:postgresql:counter_project");
+//		driver.setUsername("postgres");
+//		driver.setPassword("postgres");
 
 		return driver;
 	}
