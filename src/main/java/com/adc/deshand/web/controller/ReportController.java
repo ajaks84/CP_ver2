@@ -43,11 +43,24 @@ public class ReportController {
 		return service.getSingleReport(lineId, reportDate, shift);
 	}
 
+//	@RequestMapping(value = "/by{lineId}/{reportDate}", method = RequestMethod.GET)
+//	public @ResponseBody List<ReportDTO> getShiftsByLineAndDate(@PathVariable("lineId") Integer lineId,
+//			@PathVariable("reportDate") Date reportDate) {
+//		return service.findByLineIdAndDate(lineId, reportDate);
+//	}
+	
 	@RequestMapping(value = "/by{lineId}/{reportDate}", method = RequestMethod.GET)
-	public @ResponseBody List<ReportDTO> getShiftsByLineAndDate(@PathVariable("lineId") Integer lineId,
+    public ResponseEntity<List<ReportDTO>> getShiftsByLineAndDate(@PathVariable("lineId") Integer lineId,
 			@PathVariable("reportDate") Date reportDate) {
-		return service.findByLineIdAndDate(lineId, reportDate);
-	}
+		List<ReportDTO> reports = service.findByLineIdAndDate(lineId, reportDate);
+        if (reports.isEmpty()) {
+            return new ResponseEntity<List<ReportDTO>>(HttpStatus.NO_CONTENT);
+            // You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<ReportDTO>>(reports, HttpStatus.OK);
+    }
+	
+	
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> save(@RequestBody ReportDTO reportModel) {
