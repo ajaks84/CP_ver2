@@ -42,10 +42,10 @@ angular.module('report', ['ui.date'])
 //		console.log(self.currentShifts)
 	});
 	
-	$http.get('/reports/by'+self.line.id+'/'+self.prvDayDate).then(function(response) {
-		self.recentShifts = response.data;
-//		console.log(self.recentShifts)
-	});
+//	$http.get('/reports/by'+self.line.id+'/'+self.prvDayDate).then(function(response) {
+//		self.recentShifts = response.data;
+////		console.log(self.recentShifts)
+//	});
 	
     $scope.getDataForReport = function() {
         // console.log($scope.pDate)
