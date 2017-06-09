@@ -21,15 +21,17 @@
 		<form name="form" ng-submit="controller.login()" role="form">
 			<div class="form-group">
 				<label for="username">Username</label><input type="text"
-					id="username" name="username" class="form-control"
-					ng-model="controller.credentials.username" required /> <span
+					placeholder="admin" id="username" name="username"
+					class="form-control" ng-model="controller.credentials.username"
+					required /> <span
 					ng-show="form.username.$touched && form.username.$error.required"
 					class="help-block">Username is required</span>
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label> <input type="password"
-					id="password" name="password" class="form-control"
-					ng-model="controller.credentials.password" required /> <span
+					placeholder="admin" id="password" name="password"
+					class="form-control" ng-model="controller.credentials.password"
+					required /> <span
 					ng-show="form.password.$touched && form.password.$error.required"
 					class="help-block">Password is required</span>
 			</div>

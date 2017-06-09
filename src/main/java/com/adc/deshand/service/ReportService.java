@@ -8,7 +8,7 @@ import com.adc.deshand.service.dto.ReportDTO;
 
 public interface ReportService extends GenericService<Report, ReportDTO, Integer>{
 	
-	List<ReportDTO> findByLineIdAndDate(Integer line_id, Date date);
+	List<ReportDTO> findByLineIdAndDate(Date date,Integer line_id);
 	
 	ReportDTO getSingleReport(Integer line_id, Date date, Integer shift);
 

@@ -46,7 +46,7 @@ public class ReportController {
 	@RequestMapping(value = "/by{lineId}/{reportDate}", method = RequestMethod.GET)
 	public @ResponseBody List<ReportDTO> getShiftsByLineAndDate(@PathVariable("lineId") Integer lineId,
 			@PathVariable("reportDate") Date reportDate) {
-		return service.findByLineIdAndDate(lineId, reportDate);
+		return service.findByLineIdAndDate( reportDate,lineId);
 	}
 	
 //	@RequestMapping(value = "/by{lineId}/{reportDate}", method = RequestMethod.GET)

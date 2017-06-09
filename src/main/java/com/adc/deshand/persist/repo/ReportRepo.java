@@ -9,7 +9,7 @@ import com.adc.deshand.persist.entity.Report;
 
 public interface ReportRepo extends JpaRepository<Report, Integer>{
 	
-	List<Report> findByLineIdAndDate(Integer line_id, Date date);
+	List<Report> findByDateAndLineId( Date date,Integer line_id);
 	
 	Report findByLineIdAndDateAndShift(Integer line_id, Date date, Integer shift);
 
