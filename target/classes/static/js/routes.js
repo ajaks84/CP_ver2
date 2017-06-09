@@ -11,7 +11,7 @@ angular.module('hello', [ 'ngRoute','auth', 'home', 'country','factory', 'naviga
 						params : {
 							params : null
 						}
-					}).when('/countries', {
+					}).when('/Countries', {
 						templateUrl : 'js/country/country.html',
 						controller : 'country',
 						controllerAs : 'ctrl'

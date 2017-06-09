@@ -39,22 +39,22 @@
 	<div class="col-md-6 col-sm-6 col-xs-12  verticalLine">
 		<div class="text-center report margin_1">Or choose from here:</div>
 		<div id="wrap">
-			<div id="left_col">
-				<shift-button ng-repeat = "shiftData in rptCtrl.currentShifts"
-				shift-data = "shiftData"
-				params = "rptCtrl"
-				date = "rptCtrl.curDayDate"
-				search = "false" >
-				</shift-button>
-			</div>
-<!-- 			<div id="right_col"> -->
-<!-- 				<shift-button ng-repeat = "shiftData in rptCtrl.recentShifts" -->
+<!-- 			<div id="left_col"> -->
+<!-- 				<shift-button ng-repeat = "shiftData in rptCtrl.currentShifts" -->
 <!-- 				shift-data = "shiftData" -->
 <!-- 				params = "rptCtrl" -->
-<!-- 				date = "rptCtrl.prvDayDate"  -->
-<!-- 				search = "false"> -->
+<!-- 				date = "rptCtrl.curDayDate" -->
+<!-- 				search = "false" > -->
 <!-- 				</shift-button> -->
 <!-- 			</div> -->
+			<div id="right_col">
+				<shift-button ng-repeat = "shiftData in rptCtrl.recentShifts"
+				shift-data = "shiftData"
+				params = "rptCtrl"
+				date = "rptCtrl.prvDayDate" 
+				search = "false">
+				</shift-button>
+			</div>
 		</div>
 	</div>
 </div>
