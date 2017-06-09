@@ -41,17 +41,15 @@ public class JPAConfig {
 
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+databaseUrl);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
 		DriverManagerDataSource driver = new DriverManagerDataSource();
 		driver.setDriverClassName("org.postgresql.Driver");
-//                 Heroku DB
 		driver.setUrl(dbUrl);
 		driver.setUsername(username);
 		driver.setPassword(password);
-		
-//                 Local DB
-//		driver.setUrl("jdbc:postgresql:counter_project");
-//		driver.setUsername("postgres");
-//		driver.setPassword("postgres");
 
 		return driver;
 	}
