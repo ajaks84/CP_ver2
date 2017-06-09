@@ -19,9 +19,9 @@ public class ReportServiceImpl extends GenericServiceImpl<Report, ReportDTO, Int
 	private ReportRepo repository;
 
 	@Override
-	public List<ReportDTO> findByLineIdAndDate( Date date,Integer line_id) {
+	public List<ReportDTO> findByLineIdAndDate(Integer line_id, Date date) {
 		List<ReportDTO> result = new ArrayList<ReportDTO>();
-		for (Report report : repository.findByDateAndLineId( date,line_id)) {
+		for (Report report : repository.findByLineIdAndDate(line_id, date)) {
 			result.add(mapper.map(report, dtoClass));
 		}
 		return result;
