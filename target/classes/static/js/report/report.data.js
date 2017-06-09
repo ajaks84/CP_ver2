@@ -10,11 +10,11 @@ angular.module('report').component('consumption', {
 			self.factory = store.factory
 			self.country = store.country
 			self.line = store.line
-			if (store.reportData.length > 0) {
+//			if (store.reportData.length <= 0) {
 				self.reportData = store.reportData
-			} else {
-				self.empty = 1
-			}
+//			} else {
+//				self.empty = 1
+//			}
 			// console.log(self.reportData)
 			if (store.reportData.id != undefined) {
 				$http.get('/consumption/by' + store.reportData.id).then(

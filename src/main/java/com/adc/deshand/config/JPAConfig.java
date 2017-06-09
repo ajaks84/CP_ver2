@@ -27,7 +27,6 @@ public class JPAConfig {
 
 	String databaseUrl = System.getenv("DATABASE_URL");
 	URI dbUri = getUri();
-
 	private URI getUri() {
 		try {
 			dbUri = new URI(databaseUrl);
@@ -36,19 +35,9 @@ public class JPAConfig {
 		}
 		return dbUri;
 	}
-
 	String username = dbUri.getUserInfo().split(":")[0];
 	String password = dbUri.getUserInfo().split(":")[1];
 	String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-	// That is for embedded DB
-	
-	// @Bean(name = "dataSource")
-	// public DataSource dataSource() {
-	// return new
-	// EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL).setName("myDb")
-	// .addScript("classpath:schema.sql").addScript("classpath:data.sql").build();
-	// }
 
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
@@ -66,6 +55,15 @@ public class JPAConfig {
 
 		return driver;
 	}
+	
+	// That is for embedded DB
+	
+	// @Bean(name = "dataSource")
+	// public DataSource dataSource() {
+	// return new
+	// EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL).setName("myDb")
+	// .addScript("classpath:schema.sql").addScript("classpath:data.sql").build();
+	// }
 
 	@Bean(name = "entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

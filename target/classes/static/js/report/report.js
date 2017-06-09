@@ -18,7 +18,7 @@ angular.module('report', ['ui.date'])
 	self.factory = store.factory
 	self.country = store.country
 	self.line = store.line
-// console.log(self)
+ console.log(self.line )
 	
     $scope.dateOptions = {
         dateFormat: "yy-mm-dd",
