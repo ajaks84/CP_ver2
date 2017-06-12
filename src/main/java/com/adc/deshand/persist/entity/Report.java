@@ -1,10 +1,11 @@
 package com.adc.deshand.persist.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,10 +14,10 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "report")
 public class Report {
-
 	@Id
 	@GenericGenerator(name = "generator", strategy = "increment")
-	@GeneratedValue(generator = "generator")
+	 @GeneratedValue(strategy= GenerationType.IDENTITY)
+//	@GeneratedValue(generator = "generator")
 	@Column(name = "id", nullable = false)
 	private Integer id;
 	@Column(name = "date", nullable = false)

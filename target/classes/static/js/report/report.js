@@ -39,7 +39,7 @@ angular.module('report', ['ui.date'])
 
 	$http.get('/reports/by'+self.line.id+'/'+self.curDayDate).then(function(response) {
 		self.currentShifts = response.data;
-//		console.log(self.currentShifts)
+		console.log(self.currentShifts)
 	});
 	
 //	$http.get('/reports/by'+self.line.id+'/'+self.prvDayDate).then(function(response) {
