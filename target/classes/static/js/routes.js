@@ -1,4 +1,4 @@
-angular.module('hello', [ 'ngRoute','auth', 'home', 'country','factory', 'navigation','line','report','editor' ])
+angular.module('hello', [ 'ngRoute','ngStorage','auth', 'home', 'country','factory', 'navigation','line','report','editor' ])
 	   .config(
 	   function($routeProvider, $httpProvider, $locationProvider) {
 
@@ -15,19 +15,19 @@ angular.module('hello', [ 'ngRoute','auth', 'home', 'country','factory', 'naviga
 						templateUrl : 'js/country/country.html',
 						controller : 'country',
 						controllerAs : 'ctrl'
-					}).when('/Factories/:countryName', {
+					}).when('/Factories', {		//:countryName	
 						templateUrl : 'js/factory/factory.html',
 						controller : 'factory',
 						controllerAs : 'ctrl'
-					}).when('/Lines/:factoryName', {
+					}).when('/Lines', {
 						templateUrl : 'js/line/line.html',
 						controller : 'line',
 						controllerAs : 'ctrl'
-					}).when('/Reports/:lineName', {
+					}).when('/Reports', {
 						templateUrl : 'js/report/report.html',
 						controller : 'report',
 						controllerAs : 'rptCtrl'
-					}).when('/ReportData/:date', {
+					}).when('/ReportData', {
 						templateUrl : 'js/report/report.data.html',
 						controller : 'reportData',
 						controllerAs : 'ctrl'

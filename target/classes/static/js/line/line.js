@@ -5,28 +5,30 @@ angular.module('line', [])
  bindings : {
  line: '<'
  },
- controller: function(store) {
+ controller: function($localStorage) {
 		this.save = function (){
-			store.line = this.line
+			$localStorage.line = this.line
 		}}
  })
 
-.controller('line', function($http,store) {
+.controller('line', function($http,store,$localStorage) {
 	var self = this;
-	self.factory = store.factory
-	self.country = store.country
+	self.factory = $localStorage.factory
+	self.country = $localStorage.country
+	console.log($localStorage)
+
 //	console.log(self.factory)
 //	console.log(store.country)
 
-	 $http.get('/lines/by'+store.factory.id).then(function(response) {
+	 $http.get('/lines/by'+self.factory.id).then(function(response) {
 	 self.lines = response.data;
 //	 console.log(self.lines)
 	 });
 	
 	self.edit = function() {
 //		console.log(store)
-		store.editorData = self.lines
-		store.path = 'lines'
+		$localStorage.editorData = self.lines
+		$localStorage.path = 'lines'
 //		console.log(store)
 	}
 

@@ -4,22 +4,26 @@ angular.module('factory', [])
 	bindings : {
 		factory : '<'
 	},
-	controller : function(store) {
+	controller : function($localStorage) {
 		this.save = function() {
-			store.factory = this.factory
+			$localStorage.factory = this.factory
 		}
 	}
 })
 
-.controller('factory', function($http, store) {
+.controller('factory', function($http, store, $localStorage) {
 	var self = this;
-	self.country = store.country
-	$http.get('/Factories/by' + store.country.id).then(function(response) {
+	console.log($localStorage.country)
+
+	self.country = $localStorage.country
+//	console.log(self.country)
+
+	$http.get('/factories/by' + self.country.id).then(function(response) {
 		self.factories = response.data;
 	});
 
 	self.edit = function() {
-		store.editorData = self.factories
-		store.path = 'factories'
+		$localStorage.editorData = self.factories
+		$localStorage.path = 'factories'
 	}
 });

@@ -23,7 +23,7 @@ import com.adc.deshand.service.dto.FactoryDTO;
 @Controller
 @Scope("request")
 @SuppressWarnings("unused")
-@RequestMapping("/Factories")
+@RequestMapping("/factories")
 public class FactoryController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CountryController.class);

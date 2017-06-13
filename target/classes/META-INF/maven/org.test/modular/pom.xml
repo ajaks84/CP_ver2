@@ -104,10 +104,12 @@
 		<wro4j.version>1.8.0</wro4j.version>
 		<java.version>1.8</java.version>
 		<bootstrap.version>3.3.7-1</bootstrap.version>
-		<angularjs.version>1.6.2</angularjs.version>
+		<angularjs.version>1.6.1</angularjs.version>
 		<angular-ui-date.version>1.0.1</angular-ui-date.version>
 		<jquery.version>3.1.1-1</jquery.version>
 		<jquery-ui.version>1.12.1</jquery-ui.version>
+		<ngstorage.version>0.3.6</ngstorage.version>
+
 	</properties>
 
 	<build>
@@ -192,6 +194,11 @@
 						<groupId>org.webjars</groupId>
 						<artifactId>jquery-ui</artifactId>
 						<version>${jquery-ui.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.webjars.bower</groupId>
+						<artifactId>ngstorage</artifactId>
+						<version>${ngstorage.version}</version>
 					</dependency>
 
 				</dependencies>

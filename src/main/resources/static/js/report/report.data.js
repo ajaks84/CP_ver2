@@ -5,37 +5,51 @@ angular.module('report').component('consumption', {
 	}
 }).controller(
 		'reportData',
-		function($http, store, $scope) {
+		function($http, store, $scope,$localStorage) {
 			var self = this;
-			self.factory = store.factory
-			self.country = store.country
-			self.line = store.line
+			self.factory = $localStorage.factory
+			self.country = $localStorage.country
+			self.line = $localStorage.line
 //			if (store.reportData.length <= 0) {
-				self.reportData = store.reportData
+				self.reportData = $localStorage.reportData
 //			} else {
 //				self.empty = 1
 //			}
 			// console.log(self.reportData)
-			if (store.reportData.id != undefined) {
-				$http.get('/consumption/by' + store.reportData.id).then(
+			if ($localStorage.reportData.id != undefined) {
+				$http.get('/consumption/by' + $localStorage.reportData.id).then(
 						function(response) {
-							// console.log(response.data
+							 console.log(response.data)
 							self.consumptionList = response.data;
 							// console.log(self.recentShifts)
+							
+
+							for (i = 0; i < self.consumptionList.length; i++) { 
+								 
+								self.consumptionList[i].name = self.consumptionList[i].material.name;
+								self.consumptionList[i].unit = self.consumptionList[i].material.unit;
+								delete self.consumptionList[i].material
+
+//								 console.log(self.consumptionList[i].material.name)
+//								 								 console.log(self.consumptionList[i].material.unit)
+
+							   
+							}
+							
 						});
 			}
 
 			self.editReport = function() {
 				var arr = [ self.reportData ]
 				// console.log(store)
-				store.editorData = arr
-				store.path = 'reports'
+				$localStorage.editorData = arr
+				$localStorage.path = 'reports'
 				// console.log(store)
 			}
 			self.editCons = function() {
 				// console.log(store)
-				store.editorData = self.consumptionList
-				store.path = 'consumption'
+				$localStorage.editorData = self.consumptionList
+				$localStorage.path = 'consumption'
 				// console.log(store)
 			}
 

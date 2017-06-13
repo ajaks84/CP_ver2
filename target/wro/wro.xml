@@ -4,9 +4,10 @@
 		<css>file:C:\\Users\\adeshko\\Documents\\workspace-sts-3.8.3.RELEASE\\tut-spring-security-and-angular-js-master\\modular/src/main/wro/main.less</css>
 		<js>webjar:jquery/3.1.1-1/jquery.min.js</js>
 		<js>webjar:jquery-ui/1.12.1/jquery-ui.js</js>
-		<js>webjar:angularjs/1.6.2/angular.min.js</js>
-		<js>webjar:angularjs/1.6.2/angular-route.min.js</js>
-		<js>webjar:angularjs/1.6.2/angular-cookies.min.js</js>
+		<js>webjar:angularjs/1.6.1/angular.min.js</js>
+		<js>webjar:angularjs/1.6.1/angular-route.min.js</js>
+		<js>webjar:angularjs/1.6.1/angular-cookies.min.js</js>
 		<js>webjar:angular-ui-date/1.0.1/dist/date.js</js>
+		<js>webjar:ngstorage/0.3.6/ngStorage.min.js</js>
 	</group>
 </groups>

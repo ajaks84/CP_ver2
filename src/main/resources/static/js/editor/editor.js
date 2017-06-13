@@ -1,16 +1,16 @@
 angular.module('editor', [])
 
-.controller('editor', function($http, store, $scope, $window) {
+.controller('editor', function($http, store, $scope, $window, $localStorage) {
 	var self = this;
 
-	console.log(store.editorData)
-    if (store.editorData.length > 0){
-	self.editorData = store.editorData
+	console.log($localStorage.editorData)
+    if ($localStorage.editorData.length > 0){
+	self.editorData = $localStorage.editorData
 	self.fields = Object.getOwnPropertyNames(self.editorData[0]);
 	self.fields.pop();}
     else {
     	self.empty = 1}
-	self.path = store.path;
+	self.path = $localStorage.path;
 	self.goBack = function() {
 		$window.history.back();
 	};

@@ -8,5 +8,6 @@
 		<js>webjar:angularjs/@angularjs.version@/angular-route.min.js</js>
 		<js>webjar:angularjs/@angularjs.version@/angular-cookies.min.js</js>
 		<js>webjar:angular-ui-date/@angular-ui-date.version@/dist/date.js</js>
+		<js>webjar:ngstorage/@ngstorage.version@/ngStorage.min.js</js>
 	</group>
 </groups>

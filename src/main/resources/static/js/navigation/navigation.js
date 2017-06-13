@@ -1,9 +1,7 @@
-angular.module('navigation', [ 'auth','store' ]).controller('navigation',
+angular.module('navigation', [ 'auth','store']).controller('navigation',
 
 function($route,auth,store) {
 	
-//	console.log(store.value)
-
 	var self = this;
 
 	self.credentials = {};
