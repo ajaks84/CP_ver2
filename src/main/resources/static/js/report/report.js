@@ -17,7 +17,7 @@ angular.module('report', [ 'ui.date' ])
 		'report',
 		function($http, store, $scope, $location,$localStorage) {
 			var self = this;
-			console.log($localStorage)
+//			console.log($localStorage)
 			self.factory = $localStorage.factory
 			self.country = $localStorage.country
 			self.line = $localStorage.line
